@@ -19,11 +19,12 @@ function App() {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
-          <div className="logo">APEX</div>
+          <div className="logo">SCREENSHOW</div>
           <div className="nav-links">
-            <a href="#features">Features</a>
-            <a href="#showcase">Showcase</a>
-            <a href="#contact">Contact</a>
+            <a href="#features">Home</a>
+            <a href="#contact">Features</a>
+            <a href="#showcase">Comparison</a>
+            <a href="#contact">Pricing</a>
           </div>
         </div>
       </nav>
@@ -32,7 +33,7 @@ function App() {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            The Future of Innovation
+            Capture. Perfect. Share.
           </h1>
           <p className="hero-subtitle">
             Experience technology like never before
@@ -193,7 +194,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; 2024 APEX. All rights reserved.</p>
+          <p>&copy; 2024 SCREENSHOW. All rights reserved.</p>
           <div className="footer-links">
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>
