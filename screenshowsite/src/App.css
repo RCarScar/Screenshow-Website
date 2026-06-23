@@ -241,8 +241,8 @@ body {
   justify-content: center;
   padding: 80px 40px;
   background-color: var(--color-grey-dark);
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
   scroll-margin-top: 90px;
 }
@@ -250,18 +250,6 @@ body {
 .showcase-section.reveal {
   opacity: 1;
   transform: translateY(0);
-}
-
-.showcase-section:nth-of-type(2) {
-  background-color: var(--color-black);
-}
-
-.showcase-section:nth-of-type(3) {
-  background-color: var(--color-grey-dark);
-}
-
-.showcase-section:nth-of-type(4) {
-  background-color: var(--color-black);
 }
 
 .showcase-section.alternate {

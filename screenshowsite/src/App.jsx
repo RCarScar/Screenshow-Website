@@ -37,12 +37,14 @@ function HomePage() {
           }));
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
 
-    // Observe all showcase sections
-    Object.values(sectionRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    // Small delay to ensure refs are set
+    setTimeout(() => {
+      Object.values(sectionRefs.current).forEach((ref) => {
+        if (ref) observer.observe(ref);
+      });
+    }, 100);
 
     return () => observer.disconnect();
   }, []);
@@ -87,11 +89,11 @@ function HomePage() {
 
       {/* Product Showcase Section 1 */}
       <section 
-        id="features"
+        id="section-1"
         ref={(el) => (sectionRefs.current['section-1'] = el)}
         className={`showcase-section ${visibleSections['section-1'] ? 'reveal' : ''}`}
       >
-        <div className="section-content">
+        <div className="section-content" id="features">
           <div className="showcase-text">
             <h2>Precision Engineering</h2>
             <p>
@@ -163,11 +165,11 @@ function HomePage() {
 
       {/* Product Showcase Section 3 */}
       <section 
-        id="showcase"
+        id="section-3"
         ref={(el) => (sectionRefs.current['section-3'] = el)}
         className={`showcase-section ${visibleSections['section-3'] ? 'reveal' : ''}`}
       >
-        <div className="section-content">
+        <div className="section-content" id="showcase">
           <div className="showcase-text">
             <h2>Intelligent Innovation</h2>
             <p>
