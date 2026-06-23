@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Pricing.css';
 
 function Pricing() {
   const navigate = useNavigate();
+  const [billingPeriod, setBillingPeriod] = useState('monthly');
 
   const plans = [
     {
       name: 'Screenshow Pro',
-      price: '$9',
-      period: '/month',
+      priceMonthly: '$20',
+      priceYearly: '$9',
+      periodMonthly: '/month',
+      periodYearly: '/year',
       description: 'Perfect for creators',
       features: [
         'Full feature access',
@@ -18,6 +22,7 @@ function Pricing() {
         '1 personal device',
       ],
       highlighted: false,
+      saveYearly: 'Save 55%',
     },
     {
       name: 'Screenshow Lifetime',
@@ -64,6 +69,22 @@ function Pricing() {
         <p>Choose the perfect plan for your needs</p>
       </div>
 
+      {/* Billing Toggle */}
+      <div className="billing-toggle">
+        <button
+          className={`toggle-button ${billingPeriod === 'monthly' ? 'active' : ''}`}
+          onClick={() => setBillingPeriod('monthly')}
+        >
+          Monthly
+        </button>
+        <button
+          className={`toggle-button ${billingPeriod === 'yearly' ? 'active' : ''}`}
+          onClick={() => setBillingPeriod('yearly')}
+        >
+          Yearly
+        </button>
+      </div>
+
       {/* Pricing Cards */}
       <div className="pricing-cards">
         {plans.map((plan, index) => (
@@ -79,8 +100,15 @@ function Pricing() {
             </div>
 
             <div className="plan-price">
-              <span className="price">{plan.price}</span>
-              <span className="period">{plan.period}</span>
+              <span className="price">
+                {plan.priceMonthly ? (billingPeriod === 'monthly' ? plan.priceMonthly : plan.priceYearly) : plan.price}
+              </span>
+              <span className="period">
+                {plan.periodMonthly ? (billingPeriod === 'monthly' ? plan.periodMonthly : plan.periodYearly) : plan.period}
+              </span>
+              {plan.saveYearly && billingPeriod === 'yearly' && (
+                <span className="savings">{plan.saveYearly}</span>
+              )}
             </div>
 
             <div className="plan-features">

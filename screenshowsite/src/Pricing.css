@@ -37,7 +37,7 @@
 /* Header */
 .pricing-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   animation: fadeIn 0.8s ease;
 }
 
@@ -53,6 +53,38 @@
   font-size: 1.3rem;
   color: #7a7a7a;
   font-weight: 300;
+}
+
+/* Billing Toggle */
+.billing-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 80px;
+}
+
+.toggle-button {
+  padding: 12px 30px;
+  background: rgba(255, 140, 66, 0.1);
+  border: 1px solid rgba(255, 140, 66, 0.3);
+  border-radius: 8px;
+  color: #ff8c42;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.toggle-button:hover {
+  border-color: #ff8c42;
+  background: rgba(255, 140, 66, 0.2);
+}
+
+.toggle-button.active {
+  background: #ff8c42;
+  color: #0a0a0a;
+  border-color: #ff8c42;
 }
 
 /* Pricing Cards Grid */
@@ -129,6 +161,7 @@
   margin-bottom: 35px;
   border-bottom: 1px solid rgba(122, 122, 122, 0.2);
   padding-bottom: 30px;
+  position: relative;
 }
 
 .price {
@@ -142,6 +175,18 @@
   color: #7a7a7a;
   font-size: 1rem;
   margin-left: 5px;
+}
+
+.savings {
+  display: inline-block;
+  margin-left: 15px;
+  padding: 4px 12px;
+  background: rgba(255, 140, 66, 0.2);
+  border: 1px solid #ff8c42;
+  border-radius: 20px;
+  color: #ff8c42;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 /* Features List */
