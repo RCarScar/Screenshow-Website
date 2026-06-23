@@ -1,5 +1,32 @@
 /* Payment Page Styling */
 
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  padding: 10px 20px;
+  background: rgba(255, 140, 66, 0.2);
+  border: 1px solid rgba(255, 140, 66, 0.5);
+  border-radius: 8px;
+  color: #ff8c42;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.back-button:hover {
+  background: rgba(255, 140, 66, 0.3);
+  border-color: #ff8c42;
+  transform: translateX(-4px);
+}
+
 .payment-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #2a2a2a 0%, #0a0a0a 100%);

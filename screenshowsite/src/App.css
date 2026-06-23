@@ -241,8 +241,8 @@ body {
   justify-content: center;
   padding: 80px 40px;
   background-color: var(--color-grey-dark);
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s ease, transform 0.8s ease;
   scroll-margin-top: 90px;
 }

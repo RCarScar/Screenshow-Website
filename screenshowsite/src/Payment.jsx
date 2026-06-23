@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Payment.css';
 
 function Payment() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -78,6 +80,14 @@ function Payment() {
 
   return (
     <div className="payment-container">
+      {/* Back Button */}
+      <button 
+        onClick={() => navigate('/')}
+        className="back-button"
+      >
+        ← Back to Home
+      </button>
+
       {/* Background blobs */}
       <div className="payment-background">
         <div className="gradient-blob blob-1"></div>
