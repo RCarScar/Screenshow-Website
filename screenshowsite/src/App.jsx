@@ -1,7 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Payment from './Payment';
 
 function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/payment" element={<Payment />} />
+    </Routes>
+  );
+}
+
+function HomePage() {
   const [scrollY, setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState({});
   const sectionRefs = useRef({});
@@ -41,11 +52,12 @@ function App() {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
-          <div className="logo">SCREENSHOW</div>
+          <div className="logo">APEX</div>
           <div className="nav-links">
             <a href="#features">Features</a>
             <a href="#showcase">Showcase</a>
             <a href="#contact">Contact</a>
+            <Link to="/payment" className="nav-link">Pricing</Link>
           </div>
         </div>
       </nav>
@@ -54,12 +66,12 @@ function App() {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            The Future of Production
+            The Future of Innovation
           </h1>
           <p className="hero-subtitle">
-            Experience software like never before
+            Experience technology like never before
           </p>
-          <button className="cta-button">Create Now</button>
+          <button className="cta-button">Explore Now</button>
         </div>
         
         <div 
@@ -75,29 +87,29 @@ function App() {
 
       {/* Product Showcase Section 1 */}
       <section 
-        id="section-1"
+        id="features"
         ref={(el) => (sectionRefs.current['section-1'] = el)}
         className={`showcase-section ${visibleSections['section-1'] ? 'reveal' : ''}`}
       >
-        <div className="section-content" id="features">
+        <div className="section-content">
           <div className="showcase-text">
-            <h2>HD Render Power</h2>
+            <h2>Precision Engineering</h2>
             <p>
-              Every detail is captured in high definition quality. Our product combines 
+              Every detail is crafted with meticulous attention. Our product combines 
               cutting-edge technology with intuitive design to deliver an unparalleled experience.
             </p>
             <div className="feature-list">
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Supports 4k HDR</span>
+                <span>Ultra-responsive interface</span>
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Adaptive Visual Features</span>
+                <span>Adaptive intelligence</span>
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Optimized, Parallel Threading</span>
+                <span>Seamless integration</span>
               </div>
             </div>
           </div>
@@ -138,11 +150,11 @@ function App() {
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>3D Tilt, Pan, Motion Blur.</span>
+                <span>Premium materials</span>
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Fast Workflow</span>
+                <span>Timeless design</span>
               </div>
             </div>
           </div>
@@ -151,16 +163,16 @@ function App() {
 
       {/* Product Showcase Section 3 */}
       <section 
-        id="section-3"
+        id="showcase"
         ref={(el) => (sectionRefs.current['section-3'] = el)}
         className={`showcase-section ${visibleSections['section-3'] ? 'reveal' : ''}`}
       >
-        <div className="section-content" id="showcase">
+        <div className="section-content">
           <div className="showcase-text">
-            <h2>Intelligent Recording</h2>
+            <h2>Intelligent Innovation</h2>
             <p>
               Our AI-powered features learn and adapt to your needs, creating 
-              a personalized video that improves with every interaction.
+              a personalized experience that improves with every interaction.
             </p>
             <div className="feature-list">
               <div className="feature-item">
@@ -173,7 +185,7 @@ function App() {
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Manual Takeover</span>
+                <span>Predictive insights</span>
               </div>
             </div>
           </div>
@@ -213,7 +225,7 @@ function App() {
       <section id="contact" className="cta-section">
         <div className="cta-content">
           <h2>Ready to Transform?</h2>
-          <p>Join thousands of creators using our platform</p>
+          <p>Join thousands of innovators using our platform</p>
           <button className="cta-button primary">Get Started Today</button>
         </div>
       </section>
@@ -221,7 +233,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; 2025 Furqan Ali. All rights reserved.</p>
+          <p>&copy; 2024 APEX. All rights reserved.</p>
           <div className="footer-links">
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>

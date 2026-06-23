@@ -100,6 +100,37 @@ body {
   width: 100%;
 }
 
+/* Link Component Styling */
+.nav-link {
+  text-decoration: none;
+  color: var(--color-grey-light);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--color-orange);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-orange);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
 /* Hero Section */
 .hero {
   height: 100vh;
@@ -213,6 +244,7 @@ body {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  scroll-margin-top: 90px;
 }
 
 .showcase-section.reveal {
@@ -395,6 +427,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-margin-top: 90px;
 }
 
 .cta-content h2 {
