@@ -2,11 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Payment from './Payment';
+import Pricing from './Pricing';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/pricing" element={<Pricing />} />
       <Route path="/payment" element={<Payment />} />
     </Routes>
   );
@@ -59,7 +61,7 @@ function HomePage() {
             <a href="#features">Features</a>
             <a href="#showcase">Showcase</a>
             <a href="#contact">Contact</a>
-            <Link to="/payment" className="nav-link">Pricing</Link>
+            <Link to="/pricing" className="nav-link">Pricing</Link>
           </div>
         </div>
       </nav>
