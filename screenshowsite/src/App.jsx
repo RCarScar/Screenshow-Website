@@ -81,23 +81,23 @@ function App() {
       >
         <div className="section-content" id="features">
           <div className="showcase-text">
-            <h2>Precision Engineering</h2>
+            <h2>HD Render Power</h2>
             <p>
-              Every detail is crafted with meticulous attention. Our product combines 
+              Every detail is captured in high definition quality. Our product combines 
               cutting-edge technology with intuitive design to deliver an unparalleled experience.
             </p>
             <div className="feature-list">
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Ultra-responsive interface</span>
+                <span>Supports 4k HDR</span>
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Adaptive intelligence</span>
+                <span>Adaptive Visual Features</span>
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Seamless integration</span>
+                <span>Optimized, Parallel Threading</span>
               </div>
             </div>
           </div>
@@ -138,11 +138,11 @@ function App() {
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Premium materials</span>
+                <span>3D Tilt, Pan, Motion Blur.</span>
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Timeless design</span>
+                <span>Fast Workflow</span>
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@ function App() {
               </div>
               <div className="feature-item">
                 <span className="feature-icon">→</span>
-                <span>Predictive insights</span>
+                <span>Manual Takeover</span>
               </div>
             </div>
           </div>
