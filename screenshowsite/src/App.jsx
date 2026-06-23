@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
-  const [activeSection, setActiveSection] = useState(0);
+  const [visibleSections, setVisibleSections] = useState({});
+  const sectionRefs = useRef({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,27 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setVisibleSections((prev) => ({
+            ...prev,
+            [entry.target.id]: true,
+          }));
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all showcase sections
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="app">
       {/* Navigation */}
@@ -21,10 +43,9 @@ function App() {
         <div className="nav-container">
           <div className="logo">SCREENSHOW</div>
           <div className="nav-links">
-            <a href="#features">Home</a>
-            <a href="#contact">Features</a>
-            <a href="#showcase">Comparison</a>
-            <a href="#contact">Pricing</a>
+            <a href="#features">Features</a>
+            <a href="#showcase">Showcase</a>
+            <a href="#contact">Contact</a>
           </div>
         </div>
       </nav>
@@ -33,12 +54,12 @@ function App() {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            Capture. Perfect. Share.
+            The Future of Production
           </h1>
           <p className="hero-subtitle">
-            Experience technology like never before
+            Experience software like never before
           </p>
-          <button className="cta-button">Explore Now</button>
+          <button className="cta-button">Create Now</button>
         </div>
         
         <div 
@@ -53,15 +74,13 @@ function App() {
       </section>
 
       {/* Product Showcase Section 1 */}
-      <section id="features" className="showcase-section">
-        <div className="section-content">
-          <div 
-            className="showcase-text" 
-            style={{
-              opacity: Math.max(0, 1 - scrollY / 800),
-              transform: `translateY(${scrollY * 0.3}px)`,
-            }}
-          >
+      <section 
+        id="section-1"
+        ref={(el) => (sectionRefs.current['section-1'] = el)}
+        className={`showcase-section ${visibleSections['section-1'] ? 'reveal' : ''}`}
+      >
+        <div className="section-content" id="features">
+          <div className="showcase-text">
             <h2>Precision Engineering</h2>
             <p>
               Every detail is crafted with meticulous attention. Our product combines 
@@ -93,7 +112,11 @@ function App() {
       </section>
 
       {/* Product Showcase Section 2 */}
-      <section className="showcase-section alternate">
+      <section 
+        id="section-2"
+        ref={(el) => (sectionRefs.current['section-2'] = el)}
+        className={`showcase-section alternate ${visibleSections['section-2'] ? 'reveal' : ''}`}
+      >
         <div className="section-content">
           <div className="showcase-visual">
             <div className="product-card card-2">
@@ -127,13 +150,17 @@ function App() {
       </section>
 
       {/* Product Showcase Section 3 */}
-      <section id="showcase" className="showcase-section">
-        <div className="section-content">
+      <section 
+        id="section-3"
+        ref={(el) => (sectionRefs.current['section-3'] = el)}
+        className={`showcase-section ${visibleSections['section-3'] ? 'reveal' : ''}`}
+      >
+        <div className="section-content" id="showcase">
           <div className="showcase-text">
-            <h2>Intelligent Innovation</h2>
+            <h2>Intelligent Recording</h2>
             <p>
               Our AI-powered features learn and adapt to your needs, creating 
-              a personalized experience that improves with every interaction.
+              a personalized video that improves with every interaction.
             </p>
             <div className="feature-list">
               <div className="feature-item">
@@ -186,7 +213,7 @@ function App() {
       <section id="contact" className="cta-section">
         <div className="cta-content">
           <h2>Ready to Transform?</h2>
-          <p>Join thousands of innovators using our platform</p>
+          <p>Join thousands of creators using our platform</p>
           <button className="cta-button primary">Get Started Today</button>
         </div>
       </section>
@@ -194,7 +221,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; 2024 SCREENSHOW. All rights reserved.</p>
+          <p>&copy; 2025 Furqan Ali. All rights reserved.</p>
           <div className="footer-links">
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>
